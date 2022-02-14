@@ -1,0 +1,134 @@
+
+.tulis{
+    background-color: #00e1ff;
+    border-radius: 10px;
+    border: 0.5px solid black;
+    margin-top: 10vh;
+    font-family: sticky;
+    padding: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+    overflow: auto;
+    
+    
+}
+
+.container-dua{
+    margin-right: 0;
+}
+
+.tulis h1{
+    font-size: 2em;
+    color: #00e1ff;
+    -webkit-text-stroke: 1px #486164;
+
+}
+
+.wrap {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.masalah{
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: white;
+    border-radius: 10px;
+    width: 40vw;
+    min-height: 70vh;
+
+}
+
+.masalah h5{
+    font-size: 1em;
+}
+
+.masalah p{
+    font-size: 1.3em;
+}
+
+.isi {
+    display: grid;
+    grid-template-areas: 
+    "isi persen"
+    "isi lain";
+}
+
+.satu {
+    grid-area: isi;
+}
+
+.dua{
+    grid-area: persen;
+    padding-top: 20vh;
+}
+
+.dua .wrap-dua{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow:0 2px 10px rgba(0, 0, 0, 0.4);
+    border: 5px solid #1072aa;
+    margin-right: 2vw;
+}
+
+
+circle{
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    fill: none;
+    stroke: #1072aa;
+    stroke-dasharray: 395.64;
+    stroke-dashoffset: 197.82;
+    animation: muter;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+
+.wrap-dua h3{
+    font-weight: bold;
+    font-family:'Poppins';
+    color: #1072aa;
+}
+
+
+@keyframes muter {
+    from{
+        stroke-dashoffset: 395.64;
+    }
+
+    to{
+        stroke-dashoffset: 0;
+    }
+    
+}
+
+.tiga{
+    grid-area: lain;
+}
+
+.garis {
+    width: 100%;
+    height: 0.5vh;
+    background-color: black;
+    
+}
+
+.judul-besar{
+    font-family:'Poppins';
+    font-weight: bold;
+}
+
+.persentase h5{
+    position: relative;
+    top: -95px;
+    font-family:'Poppins';
+    font-weight: bold;
+    font-size: 30px;
+    left: 47px;
+    color: #1072aa;
+}

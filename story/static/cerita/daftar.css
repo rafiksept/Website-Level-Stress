@@ -1,0 +1,36 @@
+
+.garis {
+    width: 100%;
+    height: 0.5vh;
+    background-color: black;
+    margin-bottom: 2vh;
+    
+}
+
+h1{
+    font-family:'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.kotak-cerita{
+    width: 90%;
+    background-color: whitesmoke;
+    margin-top: 1vh;
+    padding: 1vh;
+    border-radius: 5px;
+    font-family:'Poppins', sans-serif;
+    margin-left: 2vw;
+}
+
+.judul {
+    font-weight: bold;
+    display: block;
+    background-color: aqua;
+}
+
+.card-title{
+    background-color: green;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 5px;
+}

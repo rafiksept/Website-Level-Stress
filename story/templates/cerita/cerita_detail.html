@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+ini adalah detail
+{% endblock title %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'cerita/detail.css' %}">
+{% endblock link %}
+
+{% block content %}
+<div class="satu">
+    <h1 class="judul-besar">{{object.judul}}</h1>
+    <div class="garis"></div>
+
+    <div class="wrap">
+        <div class="tulis">
+            <div class="masalah">
+                <h1>{{object.judul}}</h1>
+                <h5>{{object.publish}}</h5>
+                <p>{{object.isi}}</p>
+        
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="dua">
+    <div class="wrap-dua">
+        <h3>Level Stress</h3>
+        <div class="persentase">
+            <svg width="150" height="150">
+                <circle cx="75" cy="75" r="63" stroke="green" stroke-width="6" fill="none" />
+            </svg>
+            <h5>{{object.stress}}%</h5>
+
+        </div>
+    </div>
+</div>
+<div class="tiga"></div>
+{% endblock content %}

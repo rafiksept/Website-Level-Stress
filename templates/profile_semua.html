@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Profile
+{% endblock title %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/profile_semua.css' %}">
+{% endblock link %}
+{% block content %}
+<div class="wrapper">
+    <h2>PROFIL</h2>
+    <div class="garis"></div>
+    <div class="foto">
+        <img src="{{gambar.foto.url}}">
+    </div>
+    {% if val %}
+    <a class= "ubah" href="{% url 'update' gambar.id %}">update</a>
+    {% else %}
+    <a class="ubah" href="{% url 'ubah' %}">Kirim</a>
+    {% endif %}
+    <div class="profil">
+        <table>
+            <tr>
+                <td>Username</td>
+                <td>: {{user}}</td>
+            </tr>
+            <tr>
+            <tr>
+                <td>Login</td>
+                <td>: {{login}}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>: {{user.email}}</td>
+            </tr>
+            <tr>
+                <td>Jumlah Postingan &nbsp  </td>
+                <td>: {{postingan}}</td>
+            </tr>
+            <tr>
+                <td>Rata Rata Level</td>
+                <td>: {{mean}}%</td>
+            </tr>
+            
+        </table>
+    </div>
+</div>
+{% endblock content %}

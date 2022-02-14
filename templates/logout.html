@@ -1,0 +1,33 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Delete</title>
+    <link rel="stylesheet" href="{% static 'cerita/delete.css' %}">
+    {% include "snippets/style.html" %}
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+
+
+        <div class="delete">
+            <div class="delete-isi">
+                <h1>Apakah anda yakin ingin menghapus postingan ini?</h1>
+                <div class="card mt-2 block-center" style="width: 18rem;">
+                    <div class="card-body">
+                      <input type="submit"  class="btn btn-danger" name = "logout" value="Logout">
+                     <a href="{% url 'index' 1 %}?order=publish" class="btn btn-outline-primary">Batal</a>
+                    </div>
+                  </div>
+    
+            </div>
+        </div>
+
+    </form>
+    {% include "snippets/scripts.html" %}
+    
+</body>
+</html>

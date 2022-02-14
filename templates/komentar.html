@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{page_title}}
+{% endblock title %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/komentar.css' %}">
+{% endblock link %}
+
+{% block content %}
+<div class="konten">
+    <a href="{% url 'index' 1  %}?order=-publish">&#60; Kembali</a>
+    <div class="kartu ">
+        <div class="kepala">
+            {% if isi.anonymous %}
+            <img src="{% static 'img/beruang.jpg' %}">
+            {% else %}
+            <img src="{{isi.gambar.foto.url}}">
+            {% endif %}
+
+
+            <div class="user">
+                {% if isi.anonymous %}
+                <div class="name">Anonymous</div>
+                {% else %}
+                <div class="name">{{isi.author}}</div>
+                {% endif %}
+                <p>{{isi.publish}}</p>
+            </div>
+        </div>
+        <div class="badan">
+            <p class="postingan">{{isi.isi}}</p>
+            <p class="stress">Level Stress:{{isi.stress}}%</p>
+        </div>
+    </div>
+    <div class="pencarian">
+        <form method="POST">
+            {% csrf_token %}
+            {{form.coment}}
+            <br>
+            <label for="anonymous">Sembunyikan identitas</label>
+            {{form.anonymous}}
+            <br>
+            <button type="submit" >Komentar</button>
+        </form>
+    </div>
+
+</div>
+<div class="komentar">
+{% for i in komentar %}
+
+
+    <div class="kartu komentar">
+
+        <div class="kepala komentar">
+            {% if i.anonymous %}
+            <img src="{% static 'img/beruang.jpg' %}">
+            {% else %}
+            <img src="{{i.gambar.foto.url}}">
+            {% endif %}
+
+            <div class="user">
+                {% if i.anonymous %}
+                <div class="name">Anonymous</div>
+                {% else %}
+                <div class="name">{{i.author}}</div>
+                {% endif %}
+                <p>{{i.publish}}</p>
+            </div>
+        </div>
+        <div class="badan komentar">
+            <p class="postingan">{{i.coment}}</p>
+
+        </div>
+        {% if i in ada %}
+        <div class="hapus">
+            <a  class= "tombol-hapus" href="{% url 'delete' page isi.id i.id %}">Hapus</a>
+        </div>
+
+        {% endif %}
+
+    </div>
+{% endfor %}
+</div>
+
+
+{% endblock content %}

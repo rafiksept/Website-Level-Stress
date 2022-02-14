@@ -1,0 +1,58 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+{{page_title}}
+{% endblock title %}{{page_title}}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'cerita/tambah.css' %}">
+{% endblock link %}
+
+
+{% block content %}
+
+
+
+    <div class="ajak">
+        <h3>Ceritakan Keluhan Mu!</h3>
+        <div class="garis"></div>
+        <div class="ajakisi">
+            <img src="{% static 'img/tarian.png' %}">
+            <div class="ajakan">
+                <div class="ajak-dalam">
+
+                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, quod voluptatibus! Natus earum molestias facilis accusantium vero iste ex quas illum assumenda omnis unde ut saepe delectus recusandae, beatae sint.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, itaque? Facilis, veniam expedita delectus, inventore ab similique magnam sed deserunt mollitia officiis ipsum soluta. Architecto deserunt aperiam consequuntur tempora perferendis?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        <div class="tulis d-flex center-block">
+            <div class="form">
+                <form method="post">
+                    {% csrf_token %}
+                    {{formulir.judul}}
+                    <br>
+                    {{formulir.isi}}
+                    <br>
+                    <label class="publish" for="is_publish">Publikasikan ke semua orang</label>
+                    {{formulir.is_publish}}
+                    <br>
+                    <label class="publish" for="anonymous">Sembunyikan identitas saat publikasi</label>
+                    {{formulir.anonymous}}
+                    <br>
+                    <a href="{% url 'index' 1 %}?order=-publish" id="batal">Batal</a>
+                    <button type="submit" id="tombol-submit">Kirim</button>
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+<script src="{% static 'cerita/tambah.js' %}"></script>
+{% endblock content %}
+

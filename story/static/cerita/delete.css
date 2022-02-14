@@ -1,0 +1,23 @@
+.delete{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.delete-isi{
+    width: 70%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-isi h1{
+    font-family: 'Poppins', sans-serif;
+    display: block;
+}
+
+

@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{page_title}}
+{% endblock title %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock link %}
+
+{% block content %}
+<div class="konten">
+    {% for i in foto %}
+    <div class="kartu">
+        <div class="kepala">
+            {% if i.anonymous %}
+            <img src="{% static 'img/beruang.jpg' %}">
+            {% else %}
+            <img src="{{i.gambar.foto.url}}">
+            {% endif %}
+            <div class="user">
+                {% if i.anonymous %}
+                <div class="name">Anonymous</div>
+                {% else %}
+                <div class="name">{{i.author}}</div>
+                {% endif %}
+                
+                <p>{{i.publish}}</p>
+            </div>
+        </div>
+        <div class="badan">
+            <p class="postingan">{{i.isi}}</p>
+            <p class="stress">Level Stress: {{i.stress}}%</p>
+            <a href="{% url 'komentar' page_obj.number i.id %}">
+                <div class="bungkus-komen">
+                    <div class="dalem">
+                        <img src="{% static 'img/komentar.png' %}" >
+                        <p class="hitung">{{i.komentar_set.count}}</p>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="pencarian">
+    <div class="urutan">
+        <h3>Urutkan</h3>
+        <ul>
+            <li><a href="{% url 'index' 1 %}?order=-publish">Tanggal</a></li>
+            <li><span>Level Stress</span>
+                
+                <ul>
+                    <li><a href="{% url 'index' 1%}?order=-stress ">Tertinggi</a></li>
+                    <li><a href="{% url 'index' 1 %}?order=stress ">Terendah</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% if is_paginated %}
+<nav aria-label="halaman">
+    <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="{% url 'index' page_obj.previous_page_number %}?order={{order}}">Previous</a>
+      </li>
+    {% else %}
+        <li class="page-item disabled">
+         <a class="page-link">Previous</a>
+        </li>
+    {% endif %}
+    
+    {% if batas %}
+    {% for i in paginator.page_range %}
+        {% ifequal i page_obj.number %}
+      <li class="page-item active "><a class="page-link" href="#">{{i}}</a></li>
+        {% else %}
+        <li class="page-item "><a class="page-link" href="{% url 'index' i %}?order={{order}}">{{i}}</a></li>
+        {% endifequal%}
+    {% endfor %}
+    {% else %}
+        {% if page_obj.has_previous %}
+            {% if page_obj.has_next %}
+            <li class="page-item "><a class="page-link" href="{% url 'index' page_obj.previous_page_number %}?order={{order}}">{{page_obj.previous_page_number}}</a></li>
+            <li class="page-item active"><a class="page-link" href="#">{{page_obj.number}}</a></li>
+            <li class="page-item"><a class="page-link" href="{% url 'index' page_obj.next_page_number %}?order={{order}}">{{page_obj.next_page_number}}</a></li>
+            {% else %}
+            <li class="page-item "><a class="page-link" href="{% url 'index' sebelum %}?order={{order}}">{{sebelum}}</a></li>
+            <li class="page-item"><a class="page-link" href="{% url 'index' page_obj.previous_page_number %}?order={{order}}">{{page_obj.previous_page_number}}</a></li>
+            <li class="page-item active"><a class="page-link" href="#">{{page_obj.number}}</a></li>
+            {% endif %}
+        {% else %}
+        <li class="page-item active "><a class="page-link" href="#">{{page_obj.number}}</a></li>
+        <li class="page-item"><a class="page-link" href="{% url 'index' page_obj.next_page_number %}?order={{order}}">{{page_obj.next_page_number}}</a></li>
+        <li class="page-item"><a class="page-link" href="{% url 'index' sesudah %}?order={{order}}">{{sesudah}}</a></li>
+        {%endif%}
+
+
+    {% endif %}
+        
+    
+    {% if page_obj.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="{% url 'index' page_obj.next_page_number %}?order={{order}}">Next</a>
+      </li>
+    {% else %}
+        <li class="page-item disabled">
+         <a class="page-link">Next</a>
+        </li>
+    {% endif %}
+
+  </nav>
+{% endif %}
+
+{% endblock content %}

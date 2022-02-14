@@ -1,0 +1,123 @@
+body{
+    background-color: #f1f2f2;
+}
+
+.isi{
+    display: grid;
+    grid-template-areas: 
+    "konten cari cari"
+    ;
+}
+
+.konten{
+    grid-area: konten;
+    padding: 5px 10px;
+}
+
+.kartu{
+    width: 50vw;
+    background-color: white;
+    padding: 20px 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-top:2vh ;
+    margin-right: 0;
+    padding-bottom: 2px;
+}
+
+.pencarian{
+    grid-area: cari;
+    max-width: 30vw;
+    
+}
+.kepala{
+    display: flex;
+}
+
+.kepala img{
+    width: 55px;
+    height: 55px;
+    border-radius: 50px;
+    border: 1px solid black;
+}
+
+.user{
+    margin-left: 10px;
+    box-sizing: border-box;
+}
+
+.user p{
+    font-size: 12px;
+}
+
+.name {
+    font-size: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+
+.badan{
+    text-align: justify;
+}
+
+.badan .postingan{
+    margin: 0;
+}
+.badan .stress{
+    font-weight: 700;
+    margin: 0;
+    margin-top: 2px;
+
+}
+
+.urutan {
+    font-family:'Poppins', sans-serif; ;
+    background-color: white;
+    margin-top:2vh ;
+    padding: 10px;
+    border: 1px solid #1072aa;
+    border-radius:10px ;
+}
+
+.urutan h3{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.urutan ul span{
+    font-weight: 600;
+}
+.urutan ul a{
+    font-size: 15px;
+    color: blue;
+}
+
+.bungkus-komen img{
+    width: 20px;
+    height: 20px;
+}
+
+.bungkus-komen p{
+    font-size: 12px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif; ;;
+}
+
+.bungkus-komen {
+    width: 100%;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: end;
+}
+
+
+.dalem{
+    display: flex;
+}
+
+.dalem:hover{
+    background-color: rgb(199, 195, 195);
+    height: 25px;
+    border-radius: 5px;
+    padding: 2px;
+    color: white;
+}

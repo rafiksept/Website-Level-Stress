@@ -1,0 +1,86 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/static/img/alam.png');
+    background-size: cover;
+}
+
+.masuk {
+    background-color: rgb(255, 255, 255);
+    padding: 40px 50px;
+    border: 2px solid #1072aa;
+    border-radius: 30px;
+}
+
+.masuk h2{
+    color: #1072aa;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#username {
+    padding: 5px 5px;
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+}
+
+#password{
+    font-size: 12px;
+    padding: 5px 5px;
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+
+}
+
+form p{
+    font-size: 12px;
+    color: red;
+}
+
+button {
+    background-color: #1072aa;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 50px;
+    color: white;
+    padding: 8px 15px 8px 15px;
+    font-size: 14px;
+    justify-self: center;
+    align-self: center;
+    width: 40%;
+}
+
+
+button:hover{
+    background-color: #55a6d4;
+}
+
+.lupa-akun {
+    text-align: center;
+    font-size: 12px;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 20px;
+}
+
+.lupa-akun{
+    margin-left: 2vw;
+    width: 200px;
+}
+
+.lupa-akun a{
+    color: #1072aa;
+    text-decoration: none;
+}
+
+.lupa-akun a:hover{
+    color: #68b4e0;
+}

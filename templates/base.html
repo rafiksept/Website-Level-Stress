@@ -1,0 +1,62 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+
+        {% endblock title %}
+
+    </title>
+    {% include 'snippets/style.html' %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block link %}
+
+    {% endblock link %}
+</head>
+<body>
+
+ 
+    <div class="gambar">
+            <div class="bungkus">
+                <img src="{{gambar.foto.url}}">
+                <h5><a href="{% url 'home' %}">{{user|truncatechars:15}}</a></h5>
+                <ul class="list-group list-group-flush menus">
+                    <li class="list-group-item "><a href="{% url 'index' 1 %}?order=-publish">Home</a></li>
+                    <li class="list-group-item"><a href="{% url 'cerita:tambah' %}">Cerita</a></li>
+                    <li class="list-group-item"><a href="{% url 'cerita:riwayat' 1 %}">Catatan</a> </li>
+                    <li class="list-group-item"><a href="{% url 'about' %}">About</a> </li>
+                </ul>
+                <a href="{% url 'logout' %}" class="regist log">Log Out</a>
+
+            </div>
+        
+    
+  
+    </div>
+
+
+    <div class="container-dua">
+        <div class="isi">
+
+    
+            {% block content %}
+    
+    
+            {% endblock content %}
+
+        </div>
+        
+    </div>
+    <div class="copyright">
+        <p>Copyright© <script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made by Rafik Septiana</p>
+    </div>
+
+    {% include 'snippets/scripts.html' %}
+    <script src="{% static 'js/base.js' %}"></script>
+    
+</body>
+</html>
