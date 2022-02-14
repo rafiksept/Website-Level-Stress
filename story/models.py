@@ -28,7 +28,7 @@ class Cerita(models.Model):
     stress  = models.IntegerField(blank=True, editable=False, null=True)
     is_publish = models.BooleanField(blank=False)
     anonymous = models.BooleanField(blank=False)
-    gambar = models.ForeignKey(Gambar,default=25, on_delete=models.SET_DEFAULT)
+    gambar = models.ForeignKey(Gambar,default=1, on_delete=models.SET_DEFAULT)
     user = models.ForeignKey(User,on_delete=models.CASCADE, null=True, blank=True)
 
     def save(self):
