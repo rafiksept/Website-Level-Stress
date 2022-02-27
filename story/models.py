@@ -45,7 +45,7 @@ class Komentar(models.Model):
     publish = models.DateTimeField(auto_now_add=True, blank=True)
     postingan = models.ForeignKey(Cerita,  on_delete=models.CASCADE, blank=True, null=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE, null=True, blank=True)
-    gambar = models.ForeignKey(Gambar,default=25, on_delete=models.SET_DEFAULT)
+    gambar = models.ForeignKey(Gambar,default=1, on_delete=models.SET_DEFAULT)
 
     def __str__(self):
         return f'{self.id}.{self.coment}'

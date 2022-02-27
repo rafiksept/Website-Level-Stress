@@ -53,7 +53,12 @@ def komentarView(request,page,pk1):
             instance = form.save(commit= False)
             instance.author = request.user.username
             instance.user   = User.objects.get(id=request.user.id)
-            instance.gambar = Gambar.objects.get(author = request.user.username)
+            if len(Gambar.objects.filter(author= request.user.username)) == 0:
+                instance.save()
+            else:
+                instance.gambar = Gambar.objects.get(author= request.user.username)
+                instance.save()
+            
             instance.postingan = Cerita.objects.get(id=pk1)
             instance.save()
             return HttpResponseRedirect(reverse('komentar', args=[page,pk1]))
