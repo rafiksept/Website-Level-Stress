@@ -1,2 +1,2 @@
 # website-level-stress
-Website: sresslevel.heroku.com/login
+Website: stresslevel.heroku.com/login
